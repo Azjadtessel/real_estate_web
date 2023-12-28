@@ -91,7 +91,6 @@ def aggregate_api_calls(request):
 
 
 def product_data(request):
-    
     title = "Some title"
     price = 100
     location = "Some location"
@@ -101,19 +100,18 @@ def product_data(request):
 
     product_item = []
     product_data ={
-            "id": 1,
-            "title": title,
-            "price": price,
-            "location": location,
-            "more_details_link": link,
-            "square_footage": sq_foot,
-            "image_urls": image_url,
-        }
-        # Add more product data as needed
-                
-                
-    product_item.append(product_data)
+        "id": 1,
+        "title": title,
+        "price": price,
+        "location": location,
+        "more_details_link": link,
+        "square_footage": sq_foot,
+        "image_urls": image_url,
+    }  # Corrected indentation
 
+    # Add more product data as needed
+
+    product_item.append(product_data)
 
     return JsonResponse(product_item, safe=False)
 
@@ -240,7 +238,7 @@ def apicall_99acres(request):
     driver.get(url)
     driver.maximize_window()
 
-    form_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword2"]')))
+    form_element = WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keyword2"]')))
     form_element.click()
     form_element.send_keys(place)
     form_element.send_keys(Keys.ARROW_DOWN)
